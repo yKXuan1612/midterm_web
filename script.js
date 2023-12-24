@@ -242,7 +242,7 @@ function loadSubMenuContent(url, targetId) {
 document.addEventListener('DOMContentLoaded', function() {
     // Load student info by default
     if (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) {
-        loadSubMenuContent('K214110802_newver.html');
+        loadSubMenuContent('K214110802_newver.html', 'content');
     }
     // Add event listeners to menu items
     document.querySelectorAll('.link a').forEach(link => {
