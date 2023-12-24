@@ -1,3 +1,37 @@
+function loadSubMenuContent(url, targetId) {
+    console.log('Loading content from:', url);
+
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            const contentDiv = document.getElementById(targetId);
+
+            if (!contentDiv) {
+                console.error(`Target element with id '${targetId}' not found.`);
+                return;
+            }
+
+            // Create a temporary container and set its innerHTML to the fetched data
+            const tempContainer = document.createElement('div');
+            tempContainer.innerHTML = data;
+
+            // Select the specific section you want to append to the contentDiv
+            const sectionC = tempContainer.querySelector('.section-c');
+
+            if (sectionC) {
+                // Clear the current content of contentDiv
+                contentDiv.innerHTML = '';
+
+                // Append the selected section to the contentDiv
+                contentDiv.appendChild(sectionC);
+            } else {
+                console.error('Section-c not found in the loaded content.');
+            }
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
+        });
+}
 // embed the xml file into script
 const studentInfo = {
     MSSV: 'K214110802',
@@ -121,40 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //         });
 // }
 
-// function loadSubMenuContent(url, targetId) {
-//     console.log('Loading content from:', url);
-
-//     fetch(url)
-//         .then(response => response.text())
-//         .then(data => {
-//             const contentDiv = document.getElementById(targetId);
-
-//             if (!contentDiv) {
-//                 console.error(`Target element with id '${targetId}' not found.`);
-//                 return;
-//             }
-
-//             // Create a temporary container and set its innerHTML to the fetched data
-//             const tempContainer = document.createElement('div');
-//             tempContainer.innerHTML = data;
-
-//             // Select the specific section you want to append to the contentDiv
-//             const sectionC = tempContainer.querySelector('.section-c');
-
-//             if (sectionC) {
-//                 // Clear the current content of contentDiv
-//                 contentDiv.innerHTML = '';
-
-//                 // Append the selected section to the contentDiv
-//                 contentDiv.appendChild(sectionC);
-//             } else {
-//                 console.error('Section-c not found in the loaded content.');
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Error loading content:', error);
-//         });
-// }
 
 // document.addEventListener('DOMContentLoaded', function() {
 //     // Load student info by default
