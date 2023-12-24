@@ -238,29 +238,29 @@ document.addEventListener('DOMContentLoaded', function() {
 // }
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Load student info by default
-    if (window.location.pathname.endsWith('index.html')) {
-        loadXMLContent('K214110802.xml');
-    }
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Load student info by default
+//     if (window.location.pathname.endsWith('index.html')) {
+//         loadXMLContent('K214110802.xml');
+//     }
 
-    // Add event listeners to menu items
-    document.querySelectorAll('.link a').forEach(link => {
-        link.addEventListener('click', function(event) {
-            const contentDiv = document.getElementById('content');
+//     // Add event listeners to menu items
+//     document.querySelectorAll('.link a').forEach(link => {
+//         link.addEventListener('click', function(event) {
+//             const contentDiv = document.getElementById('content');
 
-            if (this.innerHTML === 'Trang Chủ') {
-                window.location.reload();
-            } else if (this.innerHTML === 'Giới thiệu sách') {
-                // Navigate to the link directly in the current tab
-                window.location.href = this.href;
-            } else if (this.innerHTML === 'Đăng ký') {
-                event.preventDefault();
-                loadSubMenuContent('register.html', 'content');
-            }
-        });
-    });
-});
+//             if (this.innerHTML === 'Trang Chủ') {
+//                 window.location.reload();
+//             } else if (this.innerHTML === 'Giới thiệu sách') {
+//                 // Navigate to the link directly in the current tab
+//                 window.location.href = this.href;
+//             } else if (this.innerHTML === 'Đăng ký') {
+//                 event.preventDefault();
+//                 loadSubMenuContent('register.html', 'content');
+//             }
+//         });
+//     });
+// });
 
 function submitForm(event) {
     event.preventDefault();
